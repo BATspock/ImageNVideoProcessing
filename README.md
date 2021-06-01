@@ -1,2 +1,2 @@
-# ImageNVideoProcessing
-Image and video processing
+# Image and Video Processing
+Image and video processing with python 
