@@ -13,7 +13,7 @@ assert intensity>=0 and intensity<=8
 
 val = 2**intensity;
 
-for img in os.listdir(img_pth)[:5]:
+for img in os.listdir(img_pth):
     img_arr = cv2.imread(img_pth+img,0)
     img_arr = (img_arr//val)*val
     cv2.imshow("check", img_arr)
