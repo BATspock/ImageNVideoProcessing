@@ -25,7 +25,9 @@ img_pth = "C://Users//adkishor//Desktop//ImageNVideoProcessing//misc//"
 
 for img in os.listdir(img_pth)[:3]:
     
-    im = addBorderReplicateforJPEG8X8(cv2.imread(img_pth+img, 0))     
+    im = addBorderReplicateforJPEG8X8(cv2.imread(img_pth+img))  
+
+    im = cv2.cvtColor(im, cv2.COLOR_BGR2YCR_CB)   
 
     for r in range(0,im.shape[0], 8):
         for c in range(0,im.shape[1], 8):
