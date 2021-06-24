@@ -7,24 +7,26 @@ matrix =[
         ] 
 rows=3
 columns=3
+
+def diagonal_matrix_print(rows = 3, cols = 3, matrix = matrix):
+
+    solution=[[] for i in range(rows+columns-1)] 
     
-solution=[[] for i in range(rows+columns-1)] 
-  
-for i in range(rows): 
-    for j in range(columns): 
-        sum=i+j 
-        if(sum%2 ==0): 
-  
-            #add at beginning 
-            solution[sum].insert(0,matrix[i][j]) 
-        else: 
-  
-            #add at end of the list 
-            solution[sum].append(matrix[i][j]) 
-          
-              
-# print the solution as it as 
-for i in solution: 
-    for j in i: 
-        print(j,end=" ") 
-          
+    for i in range(rows): 
+        for j in range(columns): 
+            sum=i+j 
+            if(sum%2 ==0): 
+    
+                #add at beginning 
+                solution[sum].insert(0,matrix[i][j]) 
+            else: 
+    
+                #add at end of the list 
+                solution[sum].append(matrix[i][j]) 
+            
+                
+    # print the solution as it as 
+    for i in solution: 
+        for j in i: 
+            print(j,end=" ") 
+            
