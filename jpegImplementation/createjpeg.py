@@ -34,12 +34,12 @@ def addBorderReplicateforJPEG8X8(im: np.ndarray) -> np.ndarray:
     return im
 
 def apply_dct(a):
-    test_image = np.zeros((im.shape[0], im.shape[1]))
+    test_image = np.zeros((a.shape[0], a.shape[1]))
     test_image = dct(dct(a.T, norm='ortho').T, norm='ortho')
     return test_image
 
 def apply_idct2(a):
-    test_image = np.zeros((im.shape[0], im.shape[1]))
+    test_image = np.zeros((a.shape[0], a.shape[1]))
     test_image =  idct(idct(a.copy().T, norm='ortho').T, norm='ortho') 
     return test_image
 
@@ -76,21 +76,16 @@ def qunatize_dct_8x8(im : np.ndarray,  q = QUANTIZATION_MATRIX) -> np.ndarray:
 def return_qunatize_8x8_for_idct(im :np.ndarray, q = QUANTIZATION_MATRIX) -> np.ndarray:
     return np.multiply(im,q)
 
-
-
-img_pth = "C://Users//adkishor//Desktop//ImageNVideoProcessing//misc//"
-
-for img in os.listdir(img_pth)[:]:
-    
-    im = addBorderReplicateforJPEG8X8(cv2.imread(img_pth+img,0))
+def return_compressed_image(img):        
+    im = addBorderReplicateforJPEG8X8(cv2.imread(img,0))
     #print(im.dtype)
-    cv2.imshow("check", im)  
+    #cv2.imshow("check", im)  
     #im = cv2.cvtColor(im, cv2.COLOR_BGR2YCR_CB)  
     #print(im[0:8,0:8])
     get_DCT_image = applyDCTonImage(im.copy())    
     #print(get_DCT_image.dtype)
     #print(get_DCT_image[0:8,0:8])
-    cv2.imshow("check_DCT", get_DCT_image)
+    #cv2.imshow("check_DCT", get_DCT_image)
     get_IDCT_image = applyIDCTonImage(get_DCT_image.copy())
     #get_IDCT_image = np.asarray(get_IDCT_image, dtype=np.float64)
     #cv2.imshow("check_idct", get_IDCT_image)
@@ -98,8 +93,8 @@ for img in os.listdir(img_pth)[:]:
     #print(get_IDCT_image[0:8,0:8])
     get_IDCT_image = np.uint8(get_IDCT_image)
     #print(get_IDCT_image[0:8,0:8])
-    cv2.imshow("check_idct_uint8", get_IDCT_image)
+    #cv2.imshow("check_idct_uint8", get_IDCT_image)
     #print(np.allclose(get_IDCT_image,im) )
-    
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    return get_DCT_image, get_IDCT_image
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
