@@ -44,7 +44,7 @@ def apply_idct2(a):
     return test_image
 
 def applyDCTonImage(im, ENV_SHAPE= 8) -> np.ndarray:
-    test_image = np.zeros((im.shape[0], im.shape[1]));
+    test_image = np.zeros((im.shape[0], im.shape[1]))
 
     for r in range(0,im.shape[0], ENV_SHAPE):
         for c in range(0,im.shape[1], ENV_SHAPE):
@@ -58,7 +58,7 @@ def applyDCTonImage(im, ENV_SHAPE= 8) -> np.ndarray:
 
 def applyIDCTonImage(im, ENV_SHAPE= 8) -> np.ndarray:
     
-    test_image = np.zeros((im.shape[0], im.shape[1]));
+    test_image = np.zeros((im.shape[0], im.shape[1]))
 
     for r in range(0,im.shape[0], ENV_SHAPE):
         for c in range(0,im.shape[1], ENV_SHAPE):
