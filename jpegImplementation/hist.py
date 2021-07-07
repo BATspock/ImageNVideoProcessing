@@ -8,7 +8,11 @@ def create_histogram(im :np.ndarray, channel = 0, mask = None)->np.ndarray:
     return cv2.calcHist([im],[channel],mask,[256],[0,256])
 
 
-img_pth = "C://Users//adkishor//Desktop//ImageNVideoProcessing//misc//"
+os.chdir("..")
+print(os.getcwd())
+
+
+img_pth = str(os.getcwd())+"//misc//"
 
 #i = cv2.imread(img_pth+ '4.1.01.tiff', 0)
 #cv2.imshow('image', i)
